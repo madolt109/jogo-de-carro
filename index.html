@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Corrida ÉPICA de Cliques</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="splash" id="splashScreen">
+    <h1>Corrida ÉPICA de Cliques</h1>
+    <button id="startBtn">COMEÇAR</button>
+  </div>
+
+  <div class="game" id="gameScreen" style="display:none;">
+    <div class="hud">
+      <div>Tempo: <span id="timer">0.00</span>s</div>
+      <div>Multiplicador: x<span id="multiplier">1</span></div>
+    </div>
+    <div id="countdown" class="countdown"></div>
+
+    <div class="track">
+      <div class="finish-line"></div>
+      <div class="player" id="player1" style="top: 25px;">🚗</div>
+      <div class="player" id="player2" style="top: 75px;">🏎️</div>
+      <div id="popups"></div>
+    </div>
+
+    <div class="controls">
+      <button onclick="movePlayer(1)">Jogador 1 (A)</button>
+      <button onclick="movePlayer(2)">Jogador 2 (L)</button>
+    </div>
+
+    <h2 id="winner"></h2>
+  </div>
+
+  <audio id="winSound" src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3"></audio>
+  <audio id="powerSound" src="https://assets.mixkit.co/sfx/preview/mixkit-bonus-earned-in-video-game-2058.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

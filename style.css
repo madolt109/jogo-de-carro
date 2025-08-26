@@ -1,0 +1,235 @@
+/* Fonte e reset */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at center, #05071a, #0a0f2e 80%);
+  color: #eee;
+  font-family: 'Orbitron', sans-serif;
+  overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ff0044;
+  text-shadow: 0 0 10px #ff0044, 0 0 30px #ff0044;
+}
+
+.splash, .game {
+  width: 100%;
+  max-width: 1400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash {
+  background: radial-gradient(circle, #110011, #220022);
+}
+
+#startBtn {
+  padding: 1rem 3rem;
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff0044, #ff66aa);
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff0044;
+  transition: all 0.3s ease;
+  animation: pulse 1.2s infinite alternate;
+}
+
+#startBtn:hover {
+  background: linear-gradient(45deg, #ff66aa, #ff0044);
+  box-shadow: 0 0 30px #ff66aa;
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.3); }
+}
+
+.hud {
+  position: fixed;
+  top: 10px;
+  width: 90%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ff3366;
+  text-shadow: 0 0 8px #ff3366;
+  z-index: 10;
+}
+
+.track {
+  width: 100%;
+  max-width: 1400px;
+  height: 140px;
+  margin: 2rem auto;
+  position: relative;
+  background: repeating-linear-gradient(
+    45deg,
+    #111,
+    #111 10px,
+    #222 10px,
+    #222 20px
+  );
+  border: 4px solid #ff0044;
+  border-radius: 25px;
+  box-shadow: 0 0 25px #ff0044;
+  overflow: hidden;
+}
+
+.player {
+  position: absolute;
+  font-size: 4rem;
+  left: 0;
+  transition: left 0.1s ease-in-out;
+  filter: drop-shadow(0 0 6px #ff4477);
+  user-select: none;
+}
+
+.finish-line {
+  position: absolute;
+  top: 0;
+  right: 120px;
+  width: 20px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    white,
+    white 10px,
+    black 10px,
+    black 20px
+  );
+  box-shadow: 0 0 30px red;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+.controls {
+  margin: 20px 0;
+}
+
+.controls button {
+  margin: 0 20px;
+  padding: 1rem 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ff0044, #ff66aa);
+  border: none;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff0044;
+  transition: transform 0.2s ease;
+  user-select: none;
+}
+
+.controls button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #ff66aa;
+}
+
+#winner {
+  margin-top: 15px;
+  font-size: 2.5rem;
+  color: gold;
+  text-shadow: 0 0 15px gold, 0 0 30px #ffdd00;
+}
+
+#popups {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 20;
+}
+
+.popup {
+  position: absolute;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ff0;
+  text-shadow: 0 0 10px #ff0, 0 0 20px #ff9900;
+  animation: popupAnim 1.2s forwards;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes popupAnim {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -20px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -100px) scale(1.5);
+  }
+}
+.lane {
+  flex: 1;
+  position: relative; /* Essencial para posicionar carros absolute dentro */
+  display: flex;
+  align-items: center;
+  border-right: 2px solid #ff0044;
+  overflow: hidden;
+  height: 100%;
+}
+
+.player {
+  position: absolute;
+  font-size: 4rem;
+  left: 0;
+  transition: left 0.1s ease-in-out;
+  filter: drop-shadow(0 0 6px #ff4477);
+  user-select: none;
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.countdown {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 8rem;
+  font-weight: 900;
+  color: #ff0044;
+  text-shadow:
+    0 0 20px #ff0044,
+    0 0 40px #ff3399,
+    0 0 80px #ff66cc;
+  pointer-events: none;
+  user-select: none;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.countdown.show {
+  opacity: 1;
+  animation: pulse 1s infinite;
+}
